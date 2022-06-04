@@ -11,12 +11,11 @@ login_manager.login_view = 'authentication.do_the_login'
 login_manager.session_protection = 'strong'
 bcrypt = Bcrypt()
 
-def create_app(config_type):    # dev
-
+def create_app(config_type):
     app = Flask(__name__)
-    configuration = os.path.join(os.getcwd), 'config', config_type + '.py'
+    configuration = os.path.join(os.getcwd(), 'config', config_type + '.py')
     app.config.from_pyfile(configuration)
-    db.init_app(app)    #inicializar db
+    db.init_app(app)   #inicializar db
     login_manager.init_app(app)
     bcrypt.init_app(app)
 
