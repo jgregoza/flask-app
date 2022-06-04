@@ -25,6 +25,6 @@ class User(UserMixin, db.Model):
         db.session.commit()
         return user
 
-@login_manager.user_loader  # stores the active user's ID
+@login_manager.user_loader 
 def load_user(id):
     return User.query.get(int(id))

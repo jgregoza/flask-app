@@ -3,10 +3,12 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
+from flask_bootstrap import Bootstrap
 
 
 db = SQLAlchemy()
 login_manager = LoginManager()
+bootstrap = Bootstrap()
 login_manager.login_view = 'authentication.do_the_login'
 login_manager.session_protection = 'strong'
 bcrypt = Bcrypt()
@@ -18,6 +20,7 @@ def create_app(config_type):
     db.init_app(app)   #inicializar db
     login_manager.init_app(app)
     bcrypt.init_app(app)
+    bootstrap.init_app(app)
 
     # import module
     from app.auth import authentication

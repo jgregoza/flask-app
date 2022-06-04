@@ -1,10 +1,14 @@
-from flask import render_template, request, flash, redirect, url_for
-from flask_login import login_user, logout_user, login_required, current_user
-from app.auth.forms import RegistrationForm, LoginForm
-from app.auth import authentication as at 
+# from flask import render_template, request, flash, redirect, url_for
+# from flask_login import login_user, logout_user, login_required, current_user
+# from app.auth.forms import RegistrationForm, LoginForm
+# from app.auth import authentication as at 
 from app.catalog import main
+# from app.auth.models import User
+from flask import render_template, flash, redirect, url_for
+from app.auth.forms import RegistrationForm, LoginForm
+from app.auth import authentication as at
 from app.auth.models import User
-
+from flask_login import login_user, logout_user, login_required, current_user
 
 @at.route('/register', methods = ['GET', 'POST'])
 def register_user():
